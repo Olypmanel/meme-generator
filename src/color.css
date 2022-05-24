@@ -2,17 +2,20 @@ div#colors {
  display: flex;
  align-items : center;
  /* flex-direction: column; */
- flex-wrap: wrap;
  justify-content: center;
  position: fixed;
- top: 0;
- bottom: 0;
- left:0;
+ top: 0px;
+ /* bottom: 0; */
+ height: 100vh ;
+ right:0;
  background: blueviolet;
- width: 200px;
+ width: 10rem;
 
 }
-
+div#colors >section {
+ flex-wrap: wrap;
+ display: flex;
+}
 div#colors button{
  width: 30px;
  height: 30px;

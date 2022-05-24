@@ -14,14 +14,16 @@ export const Colors = (props) => {
   localStorage.setItem("color", color);
   return (
     <div id="colors">
-      <button onClick={white}></button>
-      <button onClick={black}></button>
-      <button onClick={yellow}></button>
-      <button onClick={aqua}></button>
-      <button onClick={green}></button>
-      <button onClick={blue}></button>
-      <button onClick={brown}></button>
-      <button onClick={blueviolet}></button>
+      <section>
+        <button onClick={white}></button>
+        <button onClick={black}></button>
+        <button onClick={yellow}></button>
+        <button onClick={aqua}></button>
+        <button onClick={green}></button>
+        <button onClick={blue}></button>
+        <button onClick={brown}></button>
+        <button onClick={blueviolet}></button>
+      </section>
     </div>
   );
 };

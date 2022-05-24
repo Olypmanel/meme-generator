@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 // import Colors from "./Color";
 import styled from "styled-components";
 import Colors from "./Color";
+import { deviceSize } from "./responsive";
 
 export const Nav = styled.nav`
-  padding-top: 500px;
   position: fixed;
   bottom: 0;
-  top: 0;
+  top: 0px;
   right: 0;
   width: 10rem;
-  height: 100%;
+  height: calc(100vh - 0);
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
@@ -32,6 +32,9 @@ export const Nav = styled.nav`
     &:nth-child(1) {
       margin-top: 8rem;
     }
+    @media screen and (max-width: ${deviceSize.mobile}px) {
+      font-size: 1rem;
+    }
   }
 `;
 export const Menu = (props) => {
@@ -42,6 +45,17 @@ export const Menu = (props) => {
       colorDeterminer: !prevState?.colorDeterminer,
     }));
   }
+  useEffect(() => {
+    function getMode() {
+      setInterval(() => {
+        const result = JSON.parse(localStorage.getItem("mode"));
+        // console.log(result);
+        setMode((prevState) => ({ ...prevState, darkMode: !result }));
+        // console.log(modes.darkMode);
+      }, 100);
+    }
+    getMode();
+  }, [modes.darkMode]);
 
   const handleClick = () => {
     setMode((prevState) => ({
@@ -52,18 +66,6 @@ export const Menu = (props) => {
     localStorage.setItem("mode", JSON.stringify(modes.darkMode));
   };
 
-  useEffect(() => {
-    function getMode() {
-      const result = JSON.parse(localStorage.getItem("mode"));
-      // console.log(result);
-      setMode((prevState) => ({ ...prevState, darkMode: !result }));
-      console.log(modes.darkMode);
-    }
-    getMode();
-  }, [modes.darkMode]);
-  document.querySelector("body").style.background = `${
-    modes.darkMode ? "#111" : "#fff"
-  }`;
   return (
     <>
       {modes?.colorDeterminer ? (

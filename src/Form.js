@@ -3,14 +3,29 @@ import React, { useState, useEffect } from "react";
 import Meme from "./Meme";
 
 import styled from "styled-components";
+import { deviceSize } from "./responsive";
+const TopCont = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // background: yellow;
+`;
 const Form = styled.form`
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   margin: auto;
   margin-top: 5rem;
   // background: violet;
-  width: 500px;
+  width: 70%;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    margin: 3rem;
+    justify-content: center;
+    flex-direction: column;
+    // background: violet;
+  }
 `;
+
 export const Input = styled.input`
   height: 2.5rem;
   border-radius: 6px;
@@ -18,6 +33,7 @@ export const Input = styled.input`
   outline: none;
   resize: none;
   padding-left: 10px;
+  width: 80%;
   &:focus {
     border: blueviolet solid 1px;
   }
@@ -69,7 +85,7 @@ export const Body = (props) => {
       bottomText: "",
     }));
   return (
-    <div>
+    <TopCont>
       <Form onSubmit={handleSubmit}>
         <Input
           type="text"
@@ -93,7 +109,7 @@ export const Body = (props) => {
         img={states?.ApiData?.url}
       />
       <Button onClick={handleClick}>get new meme image</Button>
-    </div>
+    </TopCont>
   );
 };
 
