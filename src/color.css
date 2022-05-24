@@ -1,0 +1,45 @@
+div#colors {
+ display: flex;
+ align-items : center;
+ /* flex-direction: column; */
+ flex-wrap: wrap;
+ justify-content: center;
+ position: fixed;
+ top: 0;
+ bottom: 0;
+ left:0;
+ background: blueviolet;
+ width: 200px;
+
+}
+
+div#colors button{
+ width: 30px;
+ height: 30px;
+ display: block;
+ margin: 10px;
+}
+div#colors button:nth-child(1){
+ background-color: white;
+}
+div#colors button:nth-child(2){
+ background-color: black;
+}
+div#colors button:nth-child(3){
+ background-color: yellow;
+}
+div#colors button:nth-child(4){
+ background-color: aqua;
+}
+div#colors button:nth-child(5){
+ background-color: green;
+}
+div#colors button:nth-child(6){
+ background-color: blue;
+}
+div#colors button:nth-child(7){
+ background-color: brown;
+}
+div#colors button:nth-child(8){
+ background-color: blueviolet;
+}
